@@ -1,272 +1,1429 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiping Bai - 白吉平 | 个人学术主页</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jiping Bai | Academic Homepage | Trustworthy Artificial Intelligence">
+<title>Jiping Bai | 白吉平</title>
 
-        :root {
-            --primary: #2563eb;
-            --dark: #111827;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --border: #e5e7eb;
-        }
+<style>
+/* ========== GLOBAL ========== */
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-        }
+:root {
+  --bg: #080f1e;
+  --card: #111c31;
+  --card2: #17253e;
+  --text: #eef5ff;
+  --muted: #9aaec9;
+  --line: #253550;
+  --blue: #60a5fa;
+  --cyan: #56dfd5;
+  --gradient: linear-gradient(120deg,#60a5fa,#56dfd5);
+  --shadow: 0 20px 60px rgba(0,0,0,.16);
+}
 
-        /* 导航栏 */
-        nav {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .nav-links a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+body.light {
+  --bg: #f5f8fd;
+  --card: #ffffff;
+  --card2: #edf3fb;
+  --text: #15243a;
+  --muted: #65748a;
+  --line: #dfe7f1;
+  --blue: #3268d8;
+  --cyan: #078f9a;
+  --shadow: 0 18px 45px rgba(28,52,95,.06);
+}
 
-        /* 主体 */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
+* {
+  box-sizing: border-box;
+}
 
-        /* 个人信息 */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        .hero-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        .hero-name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .hero-title {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .tag {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-        }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
 
-        /* 区块样式 */
-        section {
-            margin-bottom: 3.5rem;
-        }
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-            color: var(--primary);
-        }
-        .item {
-            margin-bottom: 1.25rem;
-        }
-        .item h4 {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-        .item p {
-            color: var(--gray);
-        }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+  transition: background .3s, color .3s;
+}
 
-        /* 联系方式图标 */
-        .contact-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .contact-links a {
-            color: var(--primary);
-            font-size: 1.25rem;
-        }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .hero-name {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 25px;
+}
+
+.highlight {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::selection {
+  background: #428bd788;
+}
+
+/* ========== NAVIGATION ========== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 17px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 850;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+nav a {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color .2s;
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 8px 12px;
+  background: var(--card);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.toggle:hover {
+  border-color: var(--blue);
+}
+
+#menuBtn {
+  display: none;
+}
+
+/* ========== HERO ========== */
+
+.hero {
+  position: relative;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 32%,
+      rgba(49,104,204,.23),
+      transparent 37%
+    ),
+    radial-gradient(
+      circle at 55% 80%,
+      rgba(10,163,170,.09),
+      transparent 40%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .4;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size: 65px 65px;
+  mask-image: linear-gradient(to right,transparent,#000);
+  pointer-events: none;
+}
+
+.hero-inner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero-content {
+  padding: 80px 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 16px var(--cyan);
+}
+
+.hero h1 {
+  font-size: clamp(54px,6.5vw,88px);
+  line-height: 1.08;
+  letter-spacing: -4px;
+  margin: 22px 0 8px;
+}
+
+.chinese-name {
+  font-size: 29px;
+  font-weight: 550;
+  color: var(--muted);
+  letter-spacing: 5px;
+}
+
+.hero-role {
+  font-size: 17px;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 25px 0 17px;
+}
+
+.hero-description {
+  max-width: 550px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 32px;
+}
+
+.tag {
+  padding: 6px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--card);
+  font-size: 12px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 750;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: #071a29;
+}
+
+.btn-secondary {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+/* ========== SCIENCE VISUAL ========== */
+
+.visual {
+  position: relative;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(96,165,250,.3);
+  border-radius: 50%;
+  animation: rotate 26s linear infinite;
+}
+
+.orbit.one {
+  width: 330px;
+  height: 330px;
+}
+
+.orbit.two {
+  width: 250px;
+  height: 250px;
+  animation-direction: reverse;
+}
+
+.orbit.three {
+  width: 390px;
+  height: 170px;
+  transform: rotate(-30deg);
+  animation: none;
+  border-color: rgba(86,223,213,.28);
+}
+
+.orbit.one::before,
+.orbit.two::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: 34px;
+  width: 12px;
+  height: 12px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--cyan);
+}
+
+.core {
+  width: 165px;
+  height: 165px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 25%,#3579c5,#112b54 65%,#0a1a37);
+  box-shadow:
+    0 0 60px rgba(60,140,230,.3),
+    inset 0 0 25px rgba(100,220,255,.25);
+  border: 1px solid #478bc9;
+  color: #e5faff;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.core strong {
+  font-size: 35px;
+  letter-spacing: -2px;
+  display: block;
+}
+
+.core small {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #a9dcff;
+}
+
+.floating {
+  position: absolute;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 750;
+  box-shadow: var(--shadow);
+  z-index: 3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating.a { top: 50px; left: 0; }
+.floating.b { top: 115px; right: -5px; animation-delay: -2s; }
+.floating.c { bottom: 40px; left: 30px; animation-delay: -4s; }
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  50% { transform: translateY(-13px); }
+}
+
+/* ========== STATISTICS ========== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  padding: 29px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.stat {
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat strong {
+  display: block;
+  font-size: 31px;
+  line-height: 1.35;
+}
+
+.stat span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ========== SECTIONS ========== */
+
+.section {
+  padding: 90px 0 0;
+}
+
+.section-label {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 3px;
+}
+
+.section-title {
+  font-size: clamp(29px,4vw,39px);
+  margin: 5px 0 29px;
+  letter-spacing: -1.5px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: transform .25s,border-color .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+}
+
+.card h3 {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0 0 13px;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.95;
+}
+
+.card-icon {
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+.card-foot {
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 19px;
+}
+
+.status {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 4px 10px;
+  background: var(--card2);
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 750;
+  margin-bottom: 15px;
+}
+
+.about-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 2.1;
+}
+
+/* ========== EDUCATION ========== */
+
+.timeline {
+  border-left: 1px solid var(--line);
+  margin-left: 8px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 25px 26px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 7px;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.timeline-date {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.timeline-item h3 {
+  margin: 7px 0 3px;
+  font-size: 16px;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ========== PUBLICATIONS ========== */
+
+.paper {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 25px;
+}
+
+.paper-year {
+  font-size: 30px;
+  font-weight: 850;
+  color: var(--blue);
+  border-right: 1px solid var(--line);
+}
+
+.paper h3 {
+  font-size: 19px;
+}
+
+.paper-meta {
+  color: var(--cyan) !important;
+  font-weight: 700;
+  margin-bottom: 15px !important;
+}
+
+/* ========== AWARDS ========== */
+
+.awards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+
+.award {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 17px 20px;
+  border-radius: 11px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.award-icon {
+  color: var(--cyan);
+  font-size: 18px;
+}
+
+/* ========== CONTACT ========== */
+
+.contact {
+  margin: 95px 0 50px;
+  padding: 48px;
+  background:
+    radial-gradient(circle at right,rgba(63,140,240,.19),transparent 40%),
+    var(--card);
+  border: 1px solid var(--line);
+  border-radius: 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.contact h2 {
+  font-size: 32px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 26px 0 35px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ========== ANIMATIONS ========== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .65s ease,transform .65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media(max-width: 950px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 75px 0 10px;
+  }
+
+  .visual {
+    height: 350px;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #menuBtn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 67px;
+    left: 0;
+    right: 0;
+    padding: 18px 25px;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+}
+
+@media(max-width: 640px) {
+  .hero h1 {
+    font-size: 55px;
+    letter-spacing: -2px;
+  }
+
+  .hero-content {
+    padding-top: 65px;
+  }
+
+  .visual {
+    transform: scale(.77);
+    height: 310px;
+  }
+
+  .grid-2,.grid-3,.awards {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding-top: 70px;
+  }
+
+  .paper {
+    grid-template-columns: 1fr;
+  }
+
+  .paper-year {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+
+  .contact {
+    padding: 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 70px;
+  }
+
+  .stats {
+    gap: 5px;
+  }
+
+  .stat strong {
+    font-size: 24px;
+  }
+
+  .stat span {
+    font-size: 10px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<!-- 导航栏 -->
-<nav>
-    <div class="nav-container">
-        <div class="logo">Jiping Bai</div>
-        <div class="nav-links">
-            <a href="#about">关于我</a>
-            <a href="#education">教育</a>
-            <a href="#research">研究方向</a>
-            <a href="#publications">论文</a>
-            <a href="#projects">项目</a>
-            <a href="#awards">奖项</a>
-            <a href="#contact">联系</a>
-        </div>
-    </div>
-</nav>
+<!-- NAVIGATION -->
+<header>
+  <div class="navbar">
+    <a class="logo" href="#home">Jiping<span>.</span></a>
 
-<!-- 主体内容 -->
+    <nav id="navbar">
+      <a href="#about" data-i18n="navAbout">关于我</a>
+      <a href="#research" data-i18n="navResearch">研究方向</a>
+      <a href="#publications" data-i18n="navPapers">论文</a>
+      <a href="#patents" data-i18n="navPatents">专利</a>
+      <a href="#projects" data-i18n="navProjects">项目</a>
+      <a href="#awards" data-i18n="navAwards">荣誉</a>
+      <a href="#contact" data-i18n="navContact">联系</a>
+    </nav>
+
+    <div class="actions">
+      <button class="toggle" id="langBtn">EN</button>
+      <button class="toggle" id="themeBtn">☀</button>
+      <button class="toggle" id="menuBtn">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-inner">
+
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        RESEARCHER / TRUSTWORTHY AI
+      </div>
+
+      <h1>Jiping <span class="highlight">Bai.</span></h1>
+      <div class="chinese-name">白吉平</div>
+
+      <div class="hero-role" data-i18n="heroRole">
+        哈尔滨工业大学（威海） · 硕士研究生
+      </div>
+
+      <p class="hero-description" data-i18n="heroDesc">
+        我致力于研究可信人工智能，关注大语言模型的可靠性、
+        多模态幻觉、模型安全防御及不确定性评估。
+        希望通过严谨的研究，让人工智能系统更加可靠。
+      </p>
+
+      <div class="tags" id="heroTags"></div>
+
+      <div class="hero-buttons">
+        <a href="#research" class="btn btn-primary">
+          <span data-i18n="explore">探索研究方向</span> ↗
+        </a>
+        <a href="mailto:25s130329@stu.hit.edu.cn"
+           class="btn btn-secondary">
+          <span data-i18n="contactMe">联系我</span> ✉
+        </a>
+        <a href="https://orcid.org/0009-0008-7412-8433"
+           class="btn btn-secondary"
+           target="_blank" rel="noopener noreferrer">
+          ORCID ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="visual" aria-hidden="true">
+      <div class="orbit one"></div>
+      <div class="orbit two"></div>
+      <div class="orbit three"></div>
+      <div class="core">
+        <div>
+          <strong>AI</strong>
+          <small>RELIABILITY</small>
+        </div>
+      </div>
+      <div class="floating a">◈ Trustworthy AI</div>
+      <div class="floating b">◈ Model Safety</div>
+      <div class="floating c">◈ Uncertainty</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATISTICS -->
 <div class="container">
-
-    <!-- 个人简介 -->
-    <div class="hero">
-        <div class="hero-info">
-            <h1 class="hero-name">Jiping Bai / 白吉平</h1>
-            <p class="hero-title">哈尔滨工业大学 计算机技术 | 硕士研究生</p>
-            <p>中国海洋大学 保密技术 | 本科</p>
-            <div class="tags">
-                <span class="tag">可信人工智能</span>
-                <span class="tag">模型安全防御</span>
-                <span class="tag">不确定性评估</span>
-                <span class="tag">ESFJ</span>
-            </div>
-            <div class="contact-links">
-                <a href="mailto:25s130329@stu.hit.edu.cn"><i class="fas fa-envelope"></i></a>
-                <a href="https://orcid.org/0009-0008-7412-8433" target="_blank"><i class="fab fa-orcid"></i></a>
-                <a href="https://jipingbai.github.io" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 关于我 -->
-    <section id="about">
-        <h2 class="section-title">关于我</h2>
-        <div class="item">
-            <p>• 2024 IEEE SMC 会议审稿人</p>
-            <p>• 抖音 / 小红书：随定 Suiding</p>
-        </div>
-    </section>
-
-    <!-- 教育经历 -->
-    <section id="education">
-        <h2 class="section-title">教育经历</h2>
-        <div class="item">
-            <h4>哈尔滨工业大学 | 计算机技术 | 硕士</h4>
-        </div>
-        <div class="item">
-            <h4>中国海洋大学 | 保密技术 | 本科</h4>
-        </div>
-    </section>
-
-    <!-- 研究方向 -->
-    <section id="research">
-        <h2 class="section-title">研究方向 / 技能</h2>
-        <p><strong>核心领域：</strong>可信人工智能、模型安全防御、不确定性评估</p>
-    </section>
-
-    <!-- 学术论文 -->
-    <section id="publications">
-        <h2 class="section-title">学术论文</h2>
-        <div class="item">
-            <h4>CE: Knowledge Tracking Model Uncertainty Assessment Method under Trusted Artificial Intelligence</h4>
-            <p>IEEE SMC 2024</p>
-            <p>结合聚类算法与蒙特卡罗方法，实现知识追踪模型不确定性量化评估</p>
-        </div>
-    </section>
-
-    <!-- 项目经验 -->
-    <section id="projects">
-        <h2 class="section-title">项目与专利</h2>
-
-        <div class="item">
-            <h4>迭代选举的复杂性分析 | SRDP 大学生创新项目</h4>
-            <p>研究迭代选举在控制操作下的计算复杂性，构建数学模型与优化算法，结题评级：良好</p>
-        </div>
-
-        <div class="item">
-            <h4>Towards the Deep Blue | 2024 美国大学生数学建模竞赛 A 题</h4>
-            <p>元胞自动机 + Lotka-Volterra 模型模拟生态系统动态变化</p>
-        </div>
-
-        <div class="item">
-            <h4>基于博弈论与密码学的机器学习数据遗忘方法 | 国家发明专利（第一发明人）</h4>
-            <p>机器遗忘学习、纳什均衡、SISA、密码学保护</p>
-        </div>
-
-        <div class="item">
-            <h4>呼吸暂停综合征检测方法 | 国家发明专利（第四发明人）</h4>
-            <p>TMNet 神经网络、LSTM、域适应、生理信号监测</p>
-        </div>
-    </section>
-
-    <!-- 荣誉奖项 -->
-    <section id="awards">
-        <h2 class="section-title">荣誉与奖项</h2>
-        <div class="item">
-            <p>• 哈尔滨工业大学硕士第一学年一等奖学金</p>
-            <p>• 2024 中国海洋大学优秀学生、优秀共青团干部</p>
-            <p>• 2023 ISCC 全国大学生信息安全竞赛 国家二等奖</p>
-            <p>• 校二等奖学金、社会实践奖学金、金城科技创新一等奖学金</p>
-        </div>
-    </section>
-
-    <!-- 联系方式 -->
-    <section id="contact">
-        <h2 class="section-title">联系方式</h2>
-        <p>邮箱：25s130329@stu.hit.edu.cn</p>
-        <p>ORCID：0009-0008-7412-8433</p>
-        <p>学术主页：https://jipingbai.github.io</p>
-        <p>抖音 / 小红书：随定 Suiding</p>
-    </section>
-
+  <div class="stats" id="stats"></div>
 </div>
+
+<main class="container">
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-label">01 / ABOUT</div>
+  <h2 class="section-title" data-i18n="aboutTitle">关于我</h2>
+
+  <div class="grid-2">
+    <article class="card reveal">
+      <h3 data-i18n="profileTitle">个人简介</h3>
+      <p class="about-text" data-i18n="aboutDesc">
+        目前就读于哈尔滨工业大学（威海），
+        攻读计算机技术专业硕士学位，
+        本科毕业于中国海洋大学保密技术专业。
+        我的研究兴趣集中于可信人工智能与模型可靠性，
+        并关注人工智能安全、幻觉问题和不确定性评估。
+      </p>
+    </article>
+
+    <article class="card reveal">
+      <h3 data-i18n="educationTitle">教育经历</h3>
+      <div id="educationList" class="timeline"></div>
+    </article>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="section">
+  <div class="section-label">02 / RESEARCH</div>
+  <h2 class="section-title" data-i18n="researchTitle">
+    研究方向
+  </h2>
+  <div id="researchList" class="grid-3"></div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+  <div class="section-label">03 / PUBLICATIONS</div>
+  <h2 class="section-title" data-i18n="papersTitle">
+    学术论文
+  </h2>
+
+  <article class="card paper reveal">
+    <div class="paper-year">2024</div>
+    <div>
+      <div class="status">IEEE SMC 2024</div>
+      <h3>
+        CE: Knowledge Tracking Model Uncertainty
+        Assessment Method under Trusted Artificial Intelligence
+      </h3>
+      <p class="paper-meta" data-i18n="paperMeta">
+        第一作者 · IEEE International Conference on
+        Systems, Man, and Cybernetics
+      </p>
+      <p data-i18n="paperDesc">
+        结合聚类、蒙特卡罗方法和相关性分析，
+        对知识追踪模型开展不确定性评估，
+        从而探索低成本的模型可信度评估方法。
+      </p>
+    </div>
+  </article>
+</section>
+
+<!-- PATENTS -->
+<section id="patents" class="section">
+  <div class="section-label">04 / PATENTS</div>
+  <h2 class="section-title" data-i18n="patentsTitle">
+    发明专利
+  </h2>
+  <div id="patentList" class="grid-2"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-label">05 / PROJECTS</div>
+  <h2 class="section-title" data-i18n="projectsTitle">
+    研究项目
+  </h2>
+  <div id="projectList" class="grid-2"></div>
+</section>
+
+<!-- HONORS -->
+<section id="awards" class="section">
+  <div class="section-label">06 / HONORS</div>
+  <h2 class="section-title" data-i18n="awardsTitle">
+    荣誉与奖项
+  </h2>
+  <div id="awardList" class="awards"></div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="section">
+  <div class="section-label">07 / ACADEMIC SERVICE</div>
+  <h2 class="section-title" data-i18n="serviceTitle">
+    学术服务
+  </h2>
+  <article class="card reveal">
+    <div class="status">2024</div>
+    <h3>
+      IEEE International Conference on Systems,
+      Man, and Cybernetics (SMC)
+    </h3>
+    <p data-i18n="serviceDesc">
+      2024 IEEE SMC 会议审稿人
+    </p>
+  </article>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div>
+    <div class="section-label">08 / CONTACT</div>
+    <h2 data-i18n="contactTitle">
+      一起探索更可信的人工智能。
+    </h2>
+    <p data-i18n="contactDesc">
+      欢迎就研究问题、论文交流与潜在合作联系我。
+    </p>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:25s130329@stu.hit.edu.cn"
+       class="btn btn-primary">Email ↗</a>
+    <a href="https://orcid.org/0009-0008-7412-8433"
+       target="_blank" rel="noopener noreferrer"
+       class="btn btn-secondary">ORCID ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Jiping Bai ·
+  <span data-i18n="footerText">
+    以好奇心探索，以严谨求证。
+  </span>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+const translations = {
+  zh: {
+    navAbout: "关于我",
+    navResearch: "研究方向",
+    navPapers: "论文",
+    navPatents: "专利",
+    navProjects: "项目",
+    navAwards: "荣誉",
+    navContact: "联系",
+
+    heroRole: "哈尔滨工业大学（威海） · 计算机技术硕士研究生",
+    heroDesc: "我致力于研究可信人工智能，关注大语言模型的可靠性、多模态幻觉、模型安全防御及不确定性评估。希望通过严谨的研究，让人工智能系统更加可靠。",
+    explore: "探索研究方向",
+    contactMe: "联系我",
+
+    tags: [
+      "可信人工智能",
+      "多模态大模型",
+      "模型可靠性",
+      "不确定性评估"
+    ],
+
+    stats: [
+      ["01", "学术会议论文"],
+      ["02", "国家发明专利"],
+      ["02", "研究生学年一等奖学金"]
+    ],
+
+    aboutTitle: "关于我",
+    profileTitle: "个人简介",
+    aboutDesc: "目前就读于哈尔滨工业大学（威海），攻读计算机技术专业硕士学位，本科毕业于中国海洋大学保密技术专业。我的研究兴趣集中于可信人工智能与模型可靠性，并关注人工智能安全、幻觉问题和不确定性评估。",
+    educationTitle: "教育经历",
+
+    education: [
+      {
+        year: "2025 — 至今",
+        school: "哈尔滨工业大学（威海）",
+        degree: "计算机技术 · 硕士研究生"
+      },
+      {
+        year: "2021 — 2025",
+        school: "中国海洋大学",
+        degree: "保密技术 · 本科"
+      }
+    ],
+
+    researchTitle: "研究方向",
+    research: [
+      {
+        icon: "◈",
+        title: "大模型可靠性与幻觉",
+        desc: "研究大语言模型与多模态大模型中的幻觉、证据使用和可靠生成问题，探索提升模型输出可信度的方法。"
+      },
+      {
+        icon: "⬡",
+        title: "可信人工智能与安全",
+        desc: "关注模型安全防御、隐私保护、机器遗忘与可信学习，提升人工智能系统在实际应用中的安全性。"
+      },
+      {
+        icon: "◎",
+        title: "不确定性估计与模型评估",
+        desc: "研究模型预测的不确定性量化和行为评估，探索兼顾效率与可靠性的模型评估方法。"
+      }
+    ],
+
+    papersTitle: "学术论文",
+    paperMeta: "第一作者 · IEEE SMC 2024 · 已录用",
+    paperDesc: "结合聚类、蒙特卡罗方法和相关性分析，对知识追踪模型开展不确定性评估，从而探索低成本的模型可信度评估方法。",
+
+    patentsTitle: "发明专利",
+    patents: [
+      {
+        status: "已授权",
+        title: "基于博弈论与密码学的数据遗忘方法",
+        desc: "研究机器遗忘、博弈论及密码学保护方法，探索面向隐私保护的数据遗忘机制。",
+        foot: "第一发明人 · 中国海洋大学"
+      },
+      {
+        status: "实质审查",
+        title: "一种面向工业质检的模型可信度评估方法",
+        desc: "面向工业质量检测场景，研究模型可信度评估与可靠性分析方法。",
+        foot: "第二发明人 · 哈尔滨工业大学（威海）"
+      }
+    ],
+
+    projectsTitle: "研究项目",
+    projects: [
+      {
+        type: "大学生创新研究",
+        title: "迭代选举的复杂性分析",
+        desc: "研究迭代选举在控制操作下的计算复杂性及参数复杂性，运用规约、理论证明和算法分析等方法。",
+        foot: "第一主持人 · 中国海洋大学"
+      },
+      {
+        type: "数学建模竞赛",
+        title: "Towards the Deep Blue",
+        desc: "通过元胞自动机与 Lotka–Volterra 模型，对生态系统的动态变化进行建模与分析。",
+        foot: "2024 美国大学生数学建模竞赛 · S 奖"
+      }
+    ],
+
+    awardsTitle: "荣誉与奖项",
+    awards: [
+      "哈尔滨工业大学研究生第一学年一等奖学金",
+      "哈尔滨工业大学研究生第二学年一等奖学金",
+      "哈尔滨工业大学优秀共青团员",
+      "ISCC 全国大学生信息技术对抗竞赛国家二等奖",
+      "中国海洋大学优秀学生",
+      "中国海洋大学优秀共青团干部",
+      "中国海洋大学金城科技创新一等奖学金",
+      "中国海洋大学社会实践奖学金"
+    ],
+
+    serviceTitle: "学术服务",
+    serviceDesc: "2024 IEEE SMC 国际会议审稿人",
+
+    contactTitle: "一起探索更可信的人工智能。",
+    contactDesc: "欢迎就研究问题、论文交流与潜在合作联系我。",
+    footerText: "以好奇心探索，以严谨求证。"
+  },
+
+  en: {
+    navAbout: "About",
+    navResearch: "Research",
+    navPapers: "Publications",
+    navPatents: "Patents",
+    navProjects: "Projects",
+    navAwards: "Awards",
+    navContact: "Contact",
+
+    heroRole: "M.S. Student in Computer Technology · Harbin Institute of Technology, Weihai",
+    heroDesc: "I am interested in trustworthy artificial intelligence, with a focus on large language model reliability, multimodal hallucination, model safety, and uncertainty estimation. I aim to make AI systems more reliable through rigorous research.",
+    explore: "Explore Research",
+    contactMe: "Get in Touch",
+
+    tags: [
+      "Trustworthy AI",
+      "Multimodal LLMs",
+      "Model Reliability",
+      "Uncertainty Estimation"
+    ],
+
+    stats: [
+      ["01", "Conference Publication"],
+      ["02", "Invention Patents"],
+      ["02", "Graduate Merit Scholarships"]
+    ],
+
+    aboutTitle: "About Me",
+    profileTitle: "A Little About Me",
+    aboutDesc: "I am currently pursuing an M.S. degree in Computer Technology at Harbin Institute of Technology (Weihai). I received my bachelor's degree in Secrecy Technology from Ocean University of China. My research interests lie in trustworthy AI, model reliability, AI safety, hallucination, and uncertainty estimation.",
+    educationTitle: "Education",
+
+    education: [
+      {
+        year: "2025 — Present",
+        school: "Harbin Institute of Technology, Weihai",
+        degree: "M.S. · Computer Technology"
+      },
+      {
+        year: "2021 — 2025",
+        school: "Ocean University of China",
+        degree: "B.Eng. · Secrecy Technology"
+      }
+    ],
+
+    researchTitle: "Research Interests",
+    research: [
+      {
+        icon: "◈",
+        title: "LLM Reliability & Hallucination",
+        desc: "Investigating hallucination, evidence use, and reliable generation in large language models and multimodal AI systems."
+      },
+      {
+        icon: "⬡",
+        title: "Trustworthy AI & Security",
+        desc: "Exploring AI safety, privacy protection, machine unlearning, and defensive methods for trustworthy learning."
+      },
+      {
+        icon: "◎",
+        title: "Uncertainty & Model Evaluation",
+        desc: "Studying uncertainty estimation and model behavior evaluation, with a focus on efficient and reliable assessment methods."
+      }
+    ],
+
+    papersTitle: "Publications",
+    paperMeta: "First Author · IEEE SMC 2024 · Accepted",
+    paperDesc: "An uncertainty assessment study for knowledge tracing models, integrating clustering techniques, Monte Carlo methods, and correlation analysis to support efficient model reliability evaluation.",
+
+    patentsTitle: "Invention Patents",
+    patents: [
+      {
+        status: "Granted",
+        title: "Data Unlearning Method Based on Game Theory and Cryptography",
+        desc: "Research on machine unlearning, game theory, and cryptographic methods for privacy preserving data removal.",
+        foot: "First Inventor · Ocean University of China"
+      },
+      {
+        status: "Under Examination",
+        title: "A Model Trustworthiness Assessment Method for Industrial Quality Inspection",
+        desc: "Research on model trustworthiness assessment and reliability analysis in industrial quality inspection.",
+        foot: "Second Inventor · Harbin Institute of Technology, Weihai"
+      }
+    ],
+
+    projectsTitle: "Research & Projects",
+    projects: [
+      {
+        type: "Undergraduate Research",
+        title: "Complexity Analysis of Iterative Elections",
+        desc: "Studying computational and parameterized complexity in iterative election systems using reductions, theoretical proofs, and algorithmic analysis.",
+        foot: "Project Lead · Ocean University of China"
+      },
+      {
+        type: "Mathematical Modeling",
+        title: "Towards the Deep Blue",
+        desc: "Modeling ecosystem dynamics using cellular automata and the Lotka–Volterra model.",
+        foot: "2024 Mathematical Contest in Modeling · Successful Participant"
+      }
+    ],
+
+    awardsTitle: "Honors & Awards",
+    awards: [
+      "HIT First Class Graduate Scholarship · Year 1",
+      "HIT First Class Graduate Scholarship · Year 2",
+      "Outstanding Youth League Member · HIT",
+      "National Second Prize · ISCC Competition",
+      "Outstanding Student · Ocean University of China",
+      "Outstanding Youth League Cadre · Ocean University of China",
+      "Jincheng Science & Technology Innovation First Prize · OUC",
+      "Social Practice Scholarship · Ocean University of China"
+    ],
+
+    serviceTitle: "Academic Service",
+    serviceDesc: "Conference Reviewer · IEEE SMC 2024",
+
+    contactTitle: "Building More Reliable AI, Together.",
+    contactDesc: "Feel free to reach out to discuss research ideas, papers, and potential collaborations.",
+    footerText: "Driven by curiosity, grounded in evidence."
+  }
+};
+
+/* ========== RENDER CONTENT ========== */
+
+let currentLang = "zh";
+let currentTheme = "dark";
+
+try {
+  currentLang = localStorage.getItem("language") || "zh";
+  currentTheme = localStorage.getItem("theme") || "dark";
+} catch (e) {
+  // Local storage may be unavailable in some browsers.
+}
+
+if (!translations[currentLang]) {
+  currentLang = "zh";
+}
+
+function savePreference(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch (e) {}
+}
+
+function render() {
+  const t = translations[currentLang];
+
+  document.documentElement.lang =
+    currentLang === "zh" ? "zh-CN" : "en";
+
+  document.title =
+    currentLang === "zh"
+      ? "白吉平 | 个人学术主页"
+      : "Jiping Bai | Academic Homepage";
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) {
+      el.textContent = t[key];
+    }
+  });
+
+  document.getElementById("langBtn").textContent =
+    currentLang === "zh" ? "EN" : "中文";
+
+  document.getElementById("heroTags").innerHTML =
+    t.tags.map(tag =>
+      `<span class="tag">${tag}</span>`
+    ).join("");
+
+  document.getElementById("stats").innerHTML =
+    t.stats.map(s => `
+      <div class="stat">
+        <strong>${s[0]}</strong>
+        <span>${s[1]}</span>
+      </div>
+    `).join("");
+
+  document.getElementById("educationList").innerHTML =
+    t.education.map(e => `
+      <div class="timeline-item">
+        <div class="timeline-date">${e.year}</div>
+        <h3>${e.school}</h3>
+        <p>${e.degree}</p>
+      </div>
+    `).join("");
+
+  document.getElementById("researchList").innerHTML =
+    t.research.map(r => `
+      <article class="card reveal">
+        <div class="card-icon highlight">${r.icon}</div>
+        <h3>${r.title}</h3>
+        <p>${r.desc}</p>
+      </article>
+    `).join("");
+
+  document.getElementById("patentList").innerHTML =
+    t.patents.map(p => `
+      <article class="card reveal">
+        <div class="status">${p.status}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="card-foot">${p.foot}</div>
+      </article>
+    `).join("");
+
+  document.getElementById("projectList").innerHTML =
+    t.projects.map(p => `
+      <article class="card reveal">
+        <div class="status">${p.type}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="card-foot">${p.foot}</div>
+      </article>
+    `).join("");
+
+  document.getElementById("awardList").innerHTML =
+    t.awards.map(a => `
+      <div class="award reveal">
+        <span class="award-icon">✦</span>
+        <span>${a}</span>
+      </div>
+    `).join("");
+
+  observeElements();
+}
+
+/* ========== INTERACTIONS ========== */
+
+document.getElementById("langBtn").addEventListener("click", () => {
+  currentLang = currentLang === "zh" ? "en" : "zh";
+  savePreference("language", currentLang);
+  render();
+});
+
+function applyTheme() {
+  document.body.classList.toggle(
+    "light",
+    currentTheme === "light"
+  );
+
+  document.getElementById("themeBtn").textContent =
+    currentTheme === "dark" ? "☀" : "☾";
+}
+
+document.getElementById("themeBtn").addEventListener("click", () => {
+  currentTheme =
+    currentTheme === "dark" ? "light" : "dark";
+
+  savePreference("theme", currentTheme);
+  applyTheme();
+});
+
+document.getElementById("menuBtn").addEventListener("click", () => {
+  const nav = document.getElementById("navbar");
+  nav.classList.toggle("open");
+  document.getElementById("menuBtn").setAttribute(
+    "aria-expanded",
+    String(nav.classList.contains("open"))
+  );
+});
+
+document.querySelectorAll("#navbar a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navbar").classList.remove("open");
+    document.getElementById("menuBtn")
+      .setAttribute("aria-expanded", "false");
+  });
+});
+
+/* ========== SCROLL ANIMATIONS ========== */
+
+let observer;
+
+function observeElements() {
+  if (observer) observer.disconnect();
+
+  const elements = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    elements.forEach(el => el.classList.add("visible"));
+    return;
+  }
+
+  observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+/* ========== INITIALIZE ========== */
+
+applyTheme();
+render();
+</script>
 
 </body>
 </html>
